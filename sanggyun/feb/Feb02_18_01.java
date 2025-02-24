@@ -45,29 +45,29 @@ public class Feb02_18_01 {
 	
 	
 	public int solution(int[] arr) {
-        int answer = 0;
+        int answer = 0; //반복횟수
         
         while(true) {
-        	boolean check = false;
+        	boolean check = false; //arr(x) = arr(x+1) 을 검증하기 위한 장치
     	   
-        	for(int j = 0; j<arr.length; j++) {
-        		int a = arr[j];
+        	for(int j = 0; j<arr.length; j++) { //조건식 반복
+        		int a = arr[j]; //arr(x)
         		
-	        	if (arr[j]>=50 && arr[j]%2==0) {
+	        	if (arr[j]>=50 && arr[j]%2==0) { //arr(x+1)
 	        		arr[j] = arr[j] / 2;
 	        	} else if (arr[j] < 50 && arr[j]%2==1) {
 	        		arr[j] = arr[j]*2+1;
 	        	}
 	        	
-	        	if(arr[j] != a) {
+	        	if(arr[j] != a) { //같지 않다는 건 arr(x) != arr(x+1)
 	        		check = true;
 	        	}
         	}
         	
-        	if(!check) {
+        	if(!check) { //기본이 false, 값이 바뀌면 true가 되서 !check가 false, 다시 반복
         		break;
         	}
-        	answer++;
+        	answer++; // 반복 카운트 증가
         }
 	        
         return answer;
