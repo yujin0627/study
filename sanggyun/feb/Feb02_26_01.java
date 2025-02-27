@@ -24,8 +24,6 @@ public class Feb02_26_01 {
         	
         }
         
-    
-        
         return answer;
     }
 	
