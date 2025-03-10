@@ -8,37 +8,55 @@ import java.util.Map;
 import java.util.Set;
 
 //내가푼풀이
-class Solution2 {
-    public static int solution(String[] strArr) {
-    	int[] count=new int[strArr.length];    	
-        for(int i=0;i<strArr.length;i++) {
-        	count[i]=strArr[i].length();
-        }
+import java.util.*;
 
-        Map<Integer, Integer> freq=new HashMap<>();
-        for(int i=0;i<count.length;i++) {
-        	freq.put(count[i], freq.getOrDefault(count[i], 0)+1);
+public class Solution2 {
+    public static String solution(String s) {
+        int[] count = new int[26]; // 'a'부터 'z'까지의 문자 수를 세기 위한 배열
+        
+        // 문자열에서 각 문자의 등장 횟수 세기
+        for (char ch : s.toCharArray()) {
+            count[ch - 'a']++;
         }
-        Set<Integer> keyset=freq.keySet();
-        int max=0;
-        for(Integer a:keyset) {
-        	if(freq.get(a)>max) {
-        		max=freq.get(a);
-        	}
+        
+        // 등장 횟수가 1인 문자만 추출
+        List<Character> uniqueChars = new ArrayList<>();
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            if (count[ch - 'a'] == 1) {
+                uniqueChars.add(ch);
+            }
         }
-        System.out.println(freq.toString());
-        return max;
+        
+        // 문자들 사전 순으로 정렬 (이미 'a'부터 'z'까지 확인하므로 정렬 필요 없음)
+        StringBuilder result = new StringBuilder();
+        for (char ch : uniqueChars) {
+            result.append(ch);
+        }
+        
+        return result.toString();
     }
+
    
 
 
 
     public static void main(String[] args) {
-    	String[] strArr=new String[] {"a","bc","d","efg","hi"};
-    	System.out.println(solution(strArr));
-    	
+    	String s="hello";
+    	System.out.println(solution(s));
+    			
     }
 }
 
    
     
+
+
+	
+		
+		
+	
+
+	
+	
+	
+	
