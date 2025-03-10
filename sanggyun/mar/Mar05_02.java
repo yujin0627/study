@@ -23,7 +23,7 @@ public class Mar05_02 {
         ArrayList<Integer> list = new ArrayList<Integer>();
         
         for(int i : arr) {
-        	if(!list.contains(i)) {
+        	if(!list.contains(i)) { // contains(i) -> 중복 값이 있으면 true, 없으면 false
         		list.add(i);
         	}
         }
